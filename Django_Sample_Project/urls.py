@@ -20,4 +20,5 @@ urlpatterns = [
 
     path('admin/', admin.site.urls),
     path('', include('Hello_world.urls')),
+    path('', include('travello.urls')),
 ]
