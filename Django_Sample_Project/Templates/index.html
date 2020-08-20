@@ -1,12 +1,16 @@
 {% load static %}
+
+{% static "images" as baseUrl %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>Travello</title>
+<title>Lone Traveller</title>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="description" content="Travello template project">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel = "icon" href ="{% static 'images/bustitle.png'%}" type = "image/x-icon">
 <link rel="stylesheet" type="text/css" href="{% static 'styles/bootstrap4/bootstrap.min.css' %}">
 <link href="{% static 'plugins/font-awesome-4.7.0/css/font-awesome.min.css' %}" rel="stylesheet" type="text/css">
 <link rel="stylesheet" type="text/css" href="{% static 'plugins/OwlCarousel2-2.2.1/owl.carousel.css' %}">
@@ -30,11 +34,11 @@
 							<div class="logo"><a href="{% static 'index.html' %}">Travello</a></div>
 							<nav class="main_nav">
 								<ul class="d-flex flex-row align-items-start justify-content-start">
-									<li class="active"><a href="{% static 'index.html' %}">Home</a></li>
-									<li><a href="about.html">About us</a></li>
-									<li><a href="#">Services</a></li>
-									<li><a href="news.html">News</a></li>
-									<li><a href="contact.html">Contact</a></li>
+									<!-- <li class="active"><a href="{% static 'index.html' %}">Home</a></li> -->
+									<li><a href="/about">About us</a></li>
+									<li><a href="#">Registration</a></li>
+									<li><a href="#">Login</a></li>
+									<li><a href="#">Logout</a></li>
 								</ul>
 							</nav>
 							<div class="header_phone ml-auto">Call us: 00-56 445 678 33</div>
@@ -71,7 +75,7 @@
 		</div>
 		<div class="menu_content">
 			<ul>
-				<li><a href="{% static 'inex.html' %}">Home</a></li>
+				<li><a href="{% static 'index.html' %}">Home</a></li>
 				<li><a href="{% static 'about.html' %}">About us</a></li>
 				<li><a href="#">Services</a></li>
 				<li><a href="{% static 'news.html' %}">News</a></li>
@@ -249,77 +253,21 @@
 					<div class="destinations_container item_grid">
 
 						<!-- Destination -->
+						{% for des in dest %}
 						<div class="destination item">
 							<div class="destination_image">
-								<img src="{% static 'images/destination_1.jpg' %}" alt="">
+								<img src="{{des.image.url}}" alt="">
+								{% if des.offer %}
 								<div class="spec_offer text-center"><a href="#">Special Offer</a></div>
+								{% endif %}
 							</div>
 							<div class="destination_content">
-								<div class="destination_title"><a href="{% static 'destinations.html' %}">Bali</a></div>
-								<div class="destination_subtitle"><p>Nulla pretium tincidunt felis, nec.</p></div>
-								<div class="destination_price">From $679</div>
+								<div class="destination_title"><a href="{% static 'destinations.html' %}">{{des.name}}</a></div>
+								<div class="destination_subtitle"><p>{{des.description}}</p></div>
+								<div class="destination_price">From ${{des.price}}</div>
 							</div>
 						</div>
-
-						<!-- Destination -->
-						<div class="destination item">
-							<div class="destination_image">
-								<img src="{% static 'images/destination_2.jpg' %}" alt="">
-							</div>
-							<div class="destination_content">
-								<div class="destination_title"><a href="{% static 'destinations.html' %}">Indonesia</a></div>
-								<div class="destination_subtitle"><p>Nulla pretium tincidunt felis, nec.</p></div>
-								<div class="destination_price">From $679</div>
-							</div>
-						</div>
-
-						<!-- Destination -->
-						<div class="destination item">
-							<div class="destination_image">
-								<img src="{% static 'images/destination_3.jpg' %}" alt="">
-							</div>
-							<div class="destination_content">
-								<div class="destination_title"><a href="{% static 'destinations.html' %}">San Francisco</a></div>
-								<div class="destination_subtitle"><p>Nulla pretium tincidunt felis, nec.</p></div>
-								<div class="destination_price">From $679</div>
-							</div>
-						</div>
-
-						<!-- Destination -->
-						<div class="destination item">
-							<div class="destination_image">
-								<img src="{% static 'images/destination_4.jpg' %}" alt="">
-							</div>
-							<div class="destination_content">
-								<div class="destination_title"><a href="{% static 'destinations.html' %}">Paris</a></div>
-								<div class="destination_subtitle"><p>Nulla pretium tincidunt felis, nec.</p></div>
-								<div class="destination_price">From $679</div>
-							</div>
-						</div>
-
-						<!-- Destination -->
-						<div class="destination item">
-							<div class="destination_image">
-								<img src="{% static 'images/destination_5.jpg' %}" alt="">
-							</div>
-							<div class="destination_content">
-								<div class="destination_title"><a href="{% static 'destinations.html' %}">Phi Phi Island</a></div>
-								<div class="destination_subtitle"><p>Nulla pretium tincidunt felis, nec.</p></div>
-								<div class="destination_price">From $679</div>
-							</div>
-						</div>
-
-						<!-- Destination -->
-						<div class="destination item">
-							<div class="destination_image">
-								<img src="{% static 'images/destination_6.jpg' %}" alt="">
-							</div>
-							<div class="destination_content">
-								<div class="destination_title"><a href="{% static 'destinations.html' %}">Mykonos</a></div>
-								<div class="destination_subtitle"><p>Nulla pretium tincidunt felis, nec.</p></div>
-								<div class="destination_price">From $679</div>
-							</div>
-						</div>
+						{% endfor %}
 
 					</div>
 				</div>

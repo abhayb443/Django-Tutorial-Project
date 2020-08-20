@@ -1,5 +1,15 @@
 from django.shortcuts import render
 
+from .models import Destination
+
 # Create your views here.
 def index(request):
-    return render(request, "index.html")
+
+    dests = Destination.objects.all()
+    return render(request, "index.html", {'dest': dests})
+
+def about(request):
+    return render(request, "about.html")
+
+def contact(request):
+    return render(request, "contact.html")

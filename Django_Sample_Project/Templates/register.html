@@ -1,0 +1,27 @@
+{% load static %}
+
+{% static "images" as baseUrl %}
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Registration</title>
+    <title>Lone Traveller</title>
+    <link rel = "icon" href ="{% static 'images/bustitle.png'%}" type = "image/x-icon">
+  </head>
+  <body>
+
+  <div>
+    <form action="register" method="post">
+      {% csrf_token%}
+      <input type="text" name="FirstName" placeholder="First Name"><br>
+      <input type="text" name="LastName" placeholder="Last Name"><br>
+      <input type="text" name="Username" placeholder="Username"><br>
+      <input type="password" name="Password" placeholder="Password"><br>
+      <input type="password" name="ConfPassword" placeholder="Confirm Password"><br>
+      <input type="submit">
+    </form>
+  </div>
+  </body>
+</html>
