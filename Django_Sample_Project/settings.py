@@ -25,7 +25,7 @@ SECRET_KEY = ')8(_2c61ykggywh*)nae=u*ei^-x4=mfrmqf&ma#!op0s49!$_'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['travello-django-site.herokuapp.com', 'localhost', '127,0,0,1']
 
 
 # Application definition
