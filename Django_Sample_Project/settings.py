@@ -76,10 +76,6 @@ WSGI_APPLICATION = 'Django_Sample_Project.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
-DATABASE_URL = os.environ['DATABASE_URL']
-
-conn = psycopg2.connect(DATABASE_URL, sslmode='require')
-
 # DATABASES = {
 #     'default': {
 #         # 'ENGINE': 'django.db.backends.sqlite3',
